@@ -10,7 +10,7 @@ func New() schema.Plugin {
 		Name: "npm",
 		Platform: schema.PlatformInfo{
 			Name:     "npm",
-			Homepage: sdk.URL("https://npm.com"), // TODO: Check if this is correct
+			Homepage: sdk.URL("https://www.npmjs.com/"),
 		},
 		Credentials: []schema.CredentialType{
 			PersonalAccessToken(),

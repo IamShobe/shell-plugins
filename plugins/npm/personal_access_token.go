@@ -12,22 +12,13 @@ import (
 func PersonalAccessToken() schema.CredentialType {
 	return schema.CredentialType{
 		Name:          credname.PersonalAccessToken,
-		DocsURL:       sdk.URL("https://npm.com/docs/personal_access_token"), // TODO: Replace with actual URL
-		ManagementURL: sdk.URL("https://console.npm.com/user/security/tokens"), // TODO: Replace with actual URL
-		Fields: []schema.CredentialField{
+		DocsURL:       sdk.URL("https://docs.npmjs.com/using-private-packages-in-a-ci-cd-workflow"),
+		ManagementURL: sdk.URL("https://docs.npmjs.com/creating-and-viewing-access-tokens"),
+        Fields: []schema.CredentialField{
 			{
 				Name:                fieldname.Token,
 				MarkdownDescription: "Token used to authenticate to npm.",
 				Secret:              true,
-				Composition: &schema.ValueComposition{
-					Length: 41,
-					Prefix: "ghg_",
-                    Charset: schema.Charset{
-						Lowercase: true,
-                        Uppercase: true,
-						Digits:    true,
-					},
-				},
 			},
 		},
 		DefaultProvisioner: provision.EnvVars(defaultEnvVarMapping),
@@ -37,6 +28,6 @@ func PersonalAccessToken() schema.CredentialType {
 }
 
 var defaultEnvVarMapping = map[string]sdk.FieldName{
-	"NODE_AUTH_TOKEN": fieldname.Token, // TODO: Check if this is correct
+	"NODE_AUTH_TOKEN": fieldname.Token,
 }
 

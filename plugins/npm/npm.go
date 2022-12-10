@@ -9,9 +9,9 @@ import (
 
 func npmCLI() schema.Executable {
 	return schema.Executable{
-		Name:      "npm CLI", // TODO: Check if this is correct
+		Name:      "npm CLI",
 		Runs:      []string{"npm"},
-		DocsURL:   sdk.URL("https://npm.com/docs/cli"), // TODO: Replace with actual URL
+		DocsURL:   sdk.URL("https://docs.npmjs.com/cli/"),
 		NeedsAuth: needsauth.NotForHelpOrVersion(),
 		Uses: []schema.CredentialUsage{
 			{
